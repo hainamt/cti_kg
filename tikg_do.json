@@ -1,0 +1,246 @@
+{
+  "SecTeam": {
+    "analyses": [
+      "SamFile"
+    ],
+    "discovers": [
+      "HackOrg"
+    ],
+    "monitors": [
+      "Org",
+      "Area",
+      "Tool",
+      "Exp"
+    ],
+    "targetedBy": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way",
+      "Tool",
+      "SamFile"
+    ]
+  },
+  "HackOrg": {
+    "associatedWith": [
+      "HackOrg"
+    ],
+    "discoveredBy": [
+      "SecTeam"
+    ],
+    "hasAttackTime": [
+      "Time"
+    ],
+    "hasCharacteristics": [
+      "Features"
+    ],
+    "motivatedBy": [
+      "Purp"
+    ],
+    "uses": [
+      "Tool",
+      "OffAct",
+      "Exp",
+      "SamFile",
+      "Way"
+    ],
+    "targets": [
+      "Area",
+      "Org",
+      "SecTeam"
+    ]
+  },
+  "OffAct": {
+    "hasAttackTime": [
+      "Time"
+    ],
+    "hasCharacteristics": [
+      "Features"
+    ],
+    "motivatedBy": [
+      "Purp"
+    ],
+    "uses": [
+      "Tool",
+      "OffAct",
+      "Exp",
+      "SamFile",
+      "Way"
+    ],
+    "usedBy": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way",
+      "Tool",
+      "SamFile"
+    ],
+    "targets": [
+      "Area",
+      "Org",
+      "SecTeam"
+    ]
+  },
+  "Way": {
+    "hasAttackTime": [
+      "Time"
+    ],
+    "hasCharacteristics": [
+      "Features"
+    ],
+    "motivatedBy": [
+      "Purp"
+    ],
+    "uses": [
+      "Tool",
+      "OffAct",
+      "Exp",
+      "SamFile",
+      "Way"
+    ],
+    "usedBy": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way",
+      "Tool",
+      "SamFile"
+    ],
+    "targets": [
+      "Area",
+      "Org",
+      "SecTeam"
+    ]
+  },
+  "Exp": {
+    "hasCharacteristics": [
+      "Features"
+    ],
+    "monitoredBy": [
+      "SecTeam"
+    ],
+    "motivatedBy": [
+      "Purp"
+    ],
+    "uses": [
+      "Tool",
+      "OffAct",
+      "Exp",
+      "SamFile",
+      "Way"
+    ],
+    "usedBy": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way",
+      "Tool",
+      "SamFile"
+    ],
+    "targets": [
+      "Area",
+      "Org",
+      "SecTeam"
+    ]
+  },
+  "Tool": {
+    "hasCharacteristics": [
+      "Features"
+    ],
+    "monitoredBy": [
+      "SecTeam"
+    ],
+    "uses": [
+      "Tool",
+      "OffAct",
+      "Exp",
+      "SamFile",
+      "Way"
+    ],
+    "usedBy": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way",
+      "Tool",
+      "SamFile"
+    ],
+    "targets": [
+      "Area",
+      "Org",
+      "SecTeam"
+    ]
+  },
+  "SamFile": {
+    "hasCharacteristics": [
+      "Features"
+    ],
+    "uses": [
+      "Tool",
+      "OffAct",
+      "Exp",
+      "SamFile",
+      "Way"
+    ],
+    "usedBy": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way",
+      "Tool",
+      "SamFile"
+    ],
+    "targets": [
+      "Area",
+      "Org",
+      "SecTeam"
+    ]
+  },
+  "Org": {
+    "locatedAt": [
+      "Area"
+    ],
+    "monitoredBy": [
+      "SecTeam"
+    ],
+    "targetedBy": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way",
+      "Tool",
+      "SamFile"
+    ]
+  },
+  "Area": {
+    "monitoredBy": [
+      "SecTeam"
+    ],
+    "targetedBy": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way",
+      "Tool",
+      "SamFile"
+    ]
+  },
+  "Purp": {
+    "motivates": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way"
+    ]
+  },
+  "Feaures": {
+    "usedBy": [
+      "HackOrg",
+      "OffAct",
+      "Exp",
+      "Way",
+      "Tool",
+      "SamFile"
+    ]
+  }
+}

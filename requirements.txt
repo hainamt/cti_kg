@@ -7,3 +7,4 @@ scikit-learn~=1.6.1
 nltk~=3.9.1
 networkx~=3.4.2
 matplotlib~=3.10.0
+evaluate~=0.4.3

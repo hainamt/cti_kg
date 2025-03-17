@@ -1,0 +1,60 @@
+{
+    "SecTeam": {
+        "Org": "monitor",
+        "Area": "monitor"
+    },
+    "HackOrg": {
+        "HackOrg": "associate",
+        "SecTeam": "target",
+        "Time": "time",
+        "Features": "characteristic",
+        "Tool": "use",
+        "OffAct": "use",
+        "Exp": "use",
+        "SamFile": "use",
+        "Way": "use",
+        "Area": "target",
+        "Org": "target"
+    },
+    "OffAct": {
+        "Time": "time",
+        "Features": "characteristic",
+        "Area": "target",
+        "Org": "target",
+        "SecTeam": "target"
+    },
+    "Way": {
+        "Time": "time",
+        "Features": "characteristic",
+        "Area": "target",
+        "Org": "target",
+        "SecTeam": "target"
+    },
+    "Exp": {
+        "Features": "characteristic",
+        "SecTeam": "target",
+        "Area": "target",
+        "Org": "target"
+    },
+    "Tool": {
+        "Features": "characteristic",
+        "SecTeam": "target",
+        "Area": "target",
+        "Org": "target"
+    },
+    "SamFile": {
+        "Features": "characteristic",
+        "Area": "target",
+        "Org": "target",
+        "SecTeam": "target"
+    },
+    "Org": {
+        "Area": "locate"
+    },
+    "Purp": {
+        "HackOrg": "motivate",
+        "OffAct": "motivate",
+        "Exp": "motivate",
+        "Way": "motivate"
+    }
+}

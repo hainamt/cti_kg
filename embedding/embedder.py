@@ -5,12 +5,12 @@ import torch.nn as nn
 import torch.nn.functional as F
 from abc import ABC, abstractmethod
 from transformers import BatchEncoding
-from encoding.encoder import InputEncoded
+from encoding.encoder import NERInputEncoded
 
 
 class BaseEmbedder(nn.Module, ABC):
     @abstractmethod
-    def get_input(self, batch: InputEncoded):
+    def get_input(self, batch: NERInputEncoded):
         pass
 
     @abstractmethod
@@ -30,7 +30,7 @@ class SecBertEmbedder(BaseEmbedder):
         for param in self.emb_model.parameters():
             param.requires_grad = False
 
-    def get_input(self, batch: InputEncoded):
+    def get_input(self, batch: NERInputEncoded):
         return batch.content_encoded
 
     def forward(self, input_encoded: BatchEncoding):
@@ -51,7 +51,7 @@ class UPOSEmbedder(BaseEmbedder):
         self.embedding = nn.Embedding(upos_vocab, emb_dim)
         self.emb_dim = emb_dim
 
-    def get_input(self, batch: InputEncoded):
+    def get_input(self, batch: NERInputEncoded):
         return batch.upos_encoded
 
     def forward(self, upos_encoded: torch.Tensor):
@@ -73,7 +73,7 @@ class CharCNNEmbedder(BaseEmbedder):
         self.char_cnn = nn.Conv1d(in_channels=char_emb_dim, out_channels=num_char_filters,
                                   kernel_size=kernel_size, padding=1)
 
-    def get_input(self, batch: InputEncoded) -> torch.Tensor:
+    def get_input(self, batch: NERInputEncoded) -> torch.Tensor:
         return batch.char_encoded
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -94,7 +94,7 @@ class CustomEmbedder(nn.Module):
         super().__init__()
         self.embedders = nn.ModuleList(embedders)
 
-    def forward(self, batch: InputEncoded) -> torch.Tensor:
+    def forward(self, batch: NERInputEncoded) -> torch.Tensor:
         embeddings = [embedder(embedder.get_input(batch)) for embedder in self.embedders]
         return torch.cat(embeddings, dim=-1)
 

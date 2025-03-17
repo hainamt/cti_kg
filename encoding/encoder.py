@@ -7,11 +7,13 @@ from transformers import BatchEncoding
 from utils.constant import UPOS
 
 
-class InputEncoded(NamedTuple):
+class NERInputEncoded(NamedTuple):
     content_encoded: BatchEncoding
     upos_encoded: Tensor
     char_encoded: Tensor
 
+class REInputEncoded(NamedTuple):
+    content_encoded: BatchEncoding
 
 def upos_to_index(upos: UPOS):
     return upos.value

@@ -3,7 +3,7 @@ import torch.nn as nn
 from torchcrf import CRF
 
 from embedding.embedder import CustomEmbedder
-from encoding.encoder import InputEncoded
+from encoding.encoder import NERInputEncoded
 from utils.models import initialize_weights
 
 
@@ -33,7 +33,7 @@ class TransformerBiGruAttentionCRFNER(nn.Module):
 
         self.apply(initialize_weights)
 
-    def forward(self, input_encoded: InputEncoded, labels=None):
+    def forward(self, input_encoded: NERInputEncoded, labels=None):
         embeddings = self.emb_layer(input_encoded)
         embeddings = self.layernorm(embeddings)
         transformer_out = self.transformer_encoder(embeddings)

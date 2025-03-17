@@ -3,7 +3,7 @@ import torch.nn as nn
 from torchcrf import CRF
 
 from embedding.embedder import CustomEmbedder
-from encoding.encoder import InputEncoded
+from encoding.encoder import NERInputEncoded
 from model.custom_layer.highway import Highway
 from utils.models import initialize_weights
 
@@ -35,7 +35,7 @@ class MultiHeadAttentionBiLSTMCRFNER(nn.Module):
         self.apply(initialize_weights)
 
 
-    def forward(self, input_encoded: InputEncoded, labels=None):
+    def forward(self, input_encoded: NERInputEncoded, labels=None):
         embeddings = self.emb_layer(input_encoded)
         # embeddings = self.layernorm(embeddings)
         highway_out = self.highway(embeddings)

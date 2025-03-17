@@ -10,7 +10,7 @@ def align_pos_ids_with_tokens(tokens, pos_ids, delimiter="Ġ"):
     return aligned_pos_tags
 
 
-def align_labels_with_tokens(tokens, label):
+def align_ner_labels_with_tokens(tokens, label):
     label_idx = 0
     current_master = label[label_idx]
     label_aligned = [current_master]

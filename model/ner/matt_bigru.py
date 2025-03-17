@@ -3,7 +3,7 @@ import torch.nn as nn
 from torchcrf import CRF
 
 from embedding.embedder import CustomEmbedder
-from encoding.encoder import InputEncoded
+from encoding.encoder import NERInputEncoded
 from utils.models import initialize_weights
 
 
@@ -26,7 +26,7 @@ class MultiHeadAttentionBiGruCRFNER(nn.Module):
         self.crf = CRF(num_classes, batch_first=True)
         self.apply(initialize_weights)
 
-    def forward(self, input_encoded: InputEncoded, labels=None):
+    def forward(self, input_encoded: NERInputEncoded, labels=None):
         embeddings = self.emb_layer(input_encoded)
         attn_out, _ = self.multihead_attention(embeddings, embeddings, embeddings)
         gru_out, _ = self.gru(attn_out)

@@ -1,8 +1,11 @@
+from typing import List, Tuple
+
 import torch
 import torch.nn as nn
+from transformers import PreTrainedModel
 
-from encoding.encoder import UPOS
-from utils.constant import InputEncoded
+from model.encoding import UPOS
+from utils.enums import InputEncoded
 
 
 class SecureBERTwithUPOSEmbedding(nn.Module):
@@ -11,7 +14,7 @@ class SecureBERTwithUPOSEmbedding(nn.Module):
         self.emb_model = emb_model
         self.pos_emb_dim = pos_emb_dim
         self.upos_embedding = nn.Embedding(len(UPOS) + 50265 + 2, pos_emb_dim)
-        self.char_embedding = nn.Embedding()
+        self.char_embedding = nn.Embedding(char_vocab_size, char_emb_dim)
 
         for param in self.emb_model.parameters():
             param.requires_grad = False
@@ -29,8 +32,10 @@ class SecureBERTwithUPOSEmbedding(nn.Module):
             secbert_emb = self.emb_model(
                     input_ids=input_ids,
                     attention_mask=attention_mask
-                ).last_hidden_state__
+                ).last_hidden_state
         return secbert_emb
+    
+    def get_char_embedding(self):
 
 
     def forward(self, batch: InputEncoded):
